@@ -6,7 +6,7 @@ import org.apache.spark.sql.functions.{bround, col};
 
 object BattingAverage {
    def main(args: Array[String]): Unit = {
-      val conf = new SparkConf() .setAppName("WordCount");
+      val conf = new SparkConf() .setAppName("Batting Average");
       
       //create spark context object
       var sc = new SparkContext(conf);
