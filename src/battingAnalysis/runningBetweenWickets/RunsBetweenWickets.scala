@@ -7,7 +7,7 @@ import org.apache.spark.sql.functions.{bround, col};
 
 object RunsBetweenWickets {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("BallsPerBoundary");
+    val conf = new SparkConf().setAppName("RunningBetweenWickets");
     var sc = new SparkContext(conf);
     val sqlContext = new org.apache.spark.sql.SQLContext(sc);
 
