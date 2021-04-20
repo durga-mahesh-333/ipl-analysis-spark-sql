@@ -20,7 +20,7 @@ object BattingAverage {
       var outDf = sqlContext.sql("select dissmissed_player , count(*) as outs from IPLDataTable where innings <3 AND season>=2015 AND TRIM(dissmissed_player) != '' GROUP BY dissmissed_player ");
       var joinedDf = runsDf.join(outDf , runsDf("striker") === outDf("dissmissed_player"), "inner");
       var resultDF=joinedDf.select(joinedDf("striker").alias("batsman") , bround(col("runs").divide(col("outs")),2).alias("avg")).sort(col("avg").desc );
-      resultDF.coalesce(1).write.mode("overwrite").csv("hdfs://localhost:9000/user/output/spark-sql/battingAverage_csv")
+      resultDF.coalesce(1).write.mode("overwrite").csv("<Path for Output file>")
    }
    
 }
